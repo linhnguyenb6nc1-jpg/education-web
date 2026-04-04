@@ -12,3 +12,43 @@ function login() {
   if(role=="admin") location.href="admin.html";
 }
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCTyfD9rGmIEn6dr12KpwRqsg7ebzTBfdA",
+  authDomain: "education-web-31bec.firebaseapp.com",
+  projectId: "education-web-31bec",
+  storageBucket: "education-web-31bec.firebasestorage.app",
+  messagingSenderId: "595887483632",
+  appId: "1:595887483632:web:2b62f1fd3dc5d2d5043035"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// REGISTER
+window.register = function() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => alert("Đăng ký thành công"))
+    .catch(err => alert(err.message));
+}
+
+// LOGIN
+window.login = function() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Đăng nhập thành công");
+      window.location.href = "dashboard.html";
+    })
+    .catch(err => alert(err.message));
+}
+</script>
