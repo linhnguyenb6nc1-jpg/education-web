@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Khóa học</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header><h1>Khóa học</h1></header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+<h3>Tiếng Anh giao tiếp</h3>
+<p>Cơ bản đến nâng cao</p>
+<button onclick="alert('Đăng ký thành công!')">Đăng ký</button>
+</div>
+
+<div class="card">
+<h3>Lập trình Web</h3>
+<p>HTML, CSS, JavaScript</p>
+<button onclick="alert('Đăng ký thành công!')">Đăng ký</button>
+</div>
+
+</div>
+
+<footer>© 2026</footer>
+
+</body>
+</html>
