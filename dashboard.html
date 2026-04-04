@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Dashboard</h2>
+
+<canvas id="chart"></canvas>
+
+<script>
+let score = localStorage.getItem("score") || 0;
+
+new Chart(document.getElementById("chart"), {
+  type: "bar",
+  data: {
+    labels: ["Điểm"],
+    datasets: [{
+      label: "Kết quả",
+      data: [score]
+    }]
+  }
+});
+</script>
+
+</body>
+</html>
