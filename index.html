@@ -41,35 +41,15 @@ button{
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
 from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
-
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
+  apiKey: "AIzaSyCTyfD9rGmIEn6dr12KpwRqsg7ebzTBfdA",
   authDomain: "education-web-31bec.firebaseapp.com",
+  databaseURL: "https://education-web-31bec-default-rtdb.firebaseio.com",
   projectId: "education-web-31bec",
-  appId: "1:595887..."
+  storageBucket: "education-web-31bec.firebasestorage.app",
+  messagingSenderId: "595887483632",
+  appId: "1:595887483632:web:2b62f1fd3dc5d2d5043035",
+  measurementId: "G-HRJB55ZB2V"
 };
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.register = function() {
-  const email = email.value;
-  const password = password.value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => alert("Đăng ký thành công"))
-    .catch(err => alert(err.message));
-}
-
-window.login = function() {
-  const email = email.value;
-  const password = password.value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => alert("Đăng nhập thành công"))
-    .catch(err => alert(err.message));
-}
-</script>
-
 </body>
 </html>
