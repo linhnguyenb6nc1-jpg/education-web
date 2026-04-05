@@ -27,14 +27,14 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     document.getElementById("welcome").innerText = "Xin chào: " + user.email;
   } else {
-    window.location.href = "index.html"; // 🔥 sửa đúng
+    window.location.href = "login.html";
   }
 });
 
 // logout
 window.logout = function() {
   signOut(auth).then(() => {
-    window.location.href = "index.html"; // 🔥 sửa đúng
+    window.location.href = "login.html";
   });
 }
 </script>
