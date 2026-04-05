@@ -1,4 +1,13 @@
-<h1>Chào mừng bạn đến trang chính</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang chính</title>
+</head>
+<body>
+
+<h1 id="welcome">Đang tải...</h1>
+<button onclick="logout()">Đăng xuất</button>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
@@ -13,20 +22,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Kiểm tra đăng nhập
+// kiểm tra login
 onAuthStateChanged(auth, (user) => {
   if (user) {
     document.getElementById("welcome").innerText = "Xin chào: " + user.email;
   } else {
-    // chưa login → quay về login
-    window.location.href = "login.html";
+    window.location.href = "index.html"; // 🔥 sửa đúng
   }
 });
 
 // logout
 window.logout = function() {
   signOut(auth).then(() => {
-    window.location.href = "login.html";
+    window.location.href = "index.html"; // 🔥 sửa đúng
   });
 }
 </script>
+
+</body>
+</html>
