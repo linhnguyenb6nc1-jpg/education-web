@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Trang chính</title>
-</head>
 <body>
 
-<h1 id="welcome">Đang tải...</h1>
-<button onclick="logout()">Đăng xuất</button>
+<h1 id="welcome">Loading...</h1>
+<button onclick="logout()">Logout</button>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-const firebaseConfig = {
+const app = initializeApp({
   apiKey: "AIzaSyCTyfD9rGmIEn6dr12KpwRqsg7ebzTBfdA",
   authDomain: "education-web-31bec.firebaseapp.com",
-  projectId: "education-web-31bec",
-  appId: "1:595887483632:web:2b62f1fd3dc5d2d5043035"
-};
+  projectId: "education-web-31bec"
+});
 
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// kiểm tra login
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    document.getElementById("welcome").innerText = "Xin chào: " + user.email;
+    document.getElementById("welcome").innerText = user.email;
   } else {
     window.location.href = "login.html";
   }
 });
 
-// logout
 window.logout = function() {
   signOut(auth).then(() => {
     window.location.href = "login.html";
