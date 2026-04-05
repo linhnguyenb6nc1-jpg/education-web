@@ -36,7 +36,7 @@ window.handleLogin = function() {
   signInWithEmailAndPassword(auth, email, pass)
     .then(() => {
       alert("✅ Đăng nhập thành công!");
-      window.location.href = "home.html"; // ✅ ĐÃ SỬA
+      window.location.href = "home.html";
     })
     .catch(err => alert("Sai thông tin: " + err.message));
 }
