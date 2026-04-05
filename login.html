@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+
+<body>
+
+<h2>Đăng nhập</h2>
+
+<input id="txtEmail" type="email" placeholder="Email"><br><br>
+<input id="txtPass" type="password" placeholder="Password"><br><br>
+
+<button onclick="handleLogin()">Đăng nhập</button>
+<button onclick="handleRegister()">Đăng ký</button>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
@@ -12,32 +29,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-function validate(email, pass) {
-  if(!email.includes("@")) { alert("Email không hợp lệ"); return false; }
-  if(pass.length < 6) { alert("Mật khẩu phải ≥ 6 ký tự"); return false; }
-  return true;
-}
-
-window.handleRegister = function() {
-  const email = document.getElementById("txtEmail").value.trim();
-  const pass = document.getElementById("txtPass").value.trim();
-  if(!validate(email, pass)) return;
-
-  createUserWithEmailAndPassword(auth, email, pass)
-    .then(() => alert("🎉 Đăng ký thành công!"))
-    .catch(err => alert("Lỗi: " + err.message));
-}
-
 window.handleLogin = function() {
-  const email = document.getElementById("txtEmail").value.trim();
-  const pass = document.getElementById("txtPass").value.trim();
-  if(!validate(email, pass)) return;
+  const email = document.getElementById("txtEmail").value;
+  const pass = document.getElementById("txtPass").value;
 
   signInWithEmailAndPassword(auth, email, pass)
     .then(() => {
-      alert("✅ Đăng nhập thành công!");
+      alert("✅ Thành công");
       window.location.href = "home.html";
     })
-    .catch(err => alert("Sai thông tin: " + err.message));
+    .catch(err => alert(err.message));
+}
+
+window.handleRegister = function() {
+  const email = document.getElementById("txtEmail").value;
+  const pass = document.getElementById("txtPass").value;
+
+  createUserWithEmailAndPassword(auth, email, pass)
+    .then(() => alert("🎉 Đăng ký OK"))
+    .catch(err => alert(err.message));
 }
 </script>
+
+</body>
+</html>
