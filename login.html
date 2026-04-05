@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -29,7 +30,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// LOGIN
 window.handleLogin = function() {
+  alert("Đang login...");
+
   const email = document.getElementById("txtEmail").value;
   const pass = document.getElementById("txtPass").value;
 
@@ -41,6 +45,7 @@ window.handleLogin = function() {
     .catch(err => alert(err.message));
 }
 
+// REGISTER
 window.handleRegister = function() {
   const email = document.getElementById("txtEmail").value;
   const pass = document.getElementById("txtPass").value;
