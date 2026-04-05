@@ -18,8 +18,8 @@
 
 <div class="login-box">
   <h2>Đăng Nhập EdTech</h2>
-  <input id="txtEmail" type="email" placeholder="Email của bạn">
-  <input id="txtPass" type="password" placeholder="Mật khẩu (ít nhất 6 số)">
+  <input type="text" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
   <button class="btn-login" onclick="handleLogin()">Đăng nhập</button>
   <button class="btn-reg" onclick="handleRegister()">Tạo tài khoản mới</button>
 </div>
@@ -58,6 +58,18 @@
       .then(() => alert("✅ Đã vào hệ thống thành công!"))
       .catch(err => alert("Sai thông tin rồi Linh ơi: " + err.message));
   }
+<script>
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (email === "admin@gmail.com" && password === "123456") {
+    // đăng nhập đúng → chuyển trang
+    window.location.href = "home.html";
+  } else {
+    alert("Sai tài khoản hoặc mật khẩu!");
+  }
+}
 </script>
 
 </body>
